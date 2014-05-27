@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,45 +25,33 @@
     <!-- Custom styles for this template -->
     <link href="carousel.css" rel="stylesheet">
     <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAqxjrf4tlnzq4y7BsWkumKK2aD5gPb8VQ&sensor=true">
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAwN8oDmPEtW974oVyM3tF9Jitu-1iSSzs&sensor=true">
     </script>
     <script type="text/javascript">
+      var map;
       function initialize() {
         var myLatLng = new google.maps.LatLng(-20.280665, -40.299890);
+        geocoder = new google.maps.Geocoder();
         var mapOptions = {
           center: myLatLng,
           zoom: 17,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
         
-        var contentString = '<div class="conteudo">'+
-            '<h1>Missão 1</h1>'+
-            '<p>Na missão 1 você terá que Lorem ipsum dolor sit amet, consectetur adipiscing elit' +
-            'Fusce dapibus eros non nulla ultrice '+
-            'imperdiet luctus mauris elementum. Pellentesque habitant '+
-            'Maecenas quis tristique mi, lacinia ultricies nulla. '+
-            'Suspendisse at justo felis. Vivamus nec orci tincidunt, '+
-            'sodales nisl molestie, auctor sapien.</p>'+
-            '<button type="button" class="btn btn-primary btn-lg">Fazer Check-in</button>'+
-            '<br><br>'+
-            '</div>';
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
         
-        var infowindow = new google.maps.InfoWindow({
-            content: contentString
-        });
-        
-        var image = 'http://aux.iconpedia.net/uploads/20783145331421879769.png';
+        var image = 'img/icon-envelope.png';
         
         var marker = new google.maps.Marker({
-            position: myLatLng,
             map: map,
             icon: image,
-            animation: google.maps.Animation.BOUNCE
+            animation: google.maps.Animation.BOUNCE,
+            position: myLatLng
         });
         
         google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
+            //infowindow.open(map,marker);
+            $('#myModal').modal();
         });
         
       }
@@ -120,11 +107,26 @@
     <div class="map" id="map_canvas">
         
     </div>
-<div style="background: #000;width:100%;height:20%;position:fixed;bottom: 0;z-index: 999999">
-            teste
+    
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Missão 1 - </h4>
         </div>
-
-
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Fazer Check-in</button>
+        </div>
+        </div>
+    </div>
+    </div>
+    
     <!-- Marketing messaging and featurettes
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
