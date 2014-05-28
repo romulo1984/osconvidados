@@ -116,6 +116,7 @@
             <h4 class="modal-title" id="myModalLabel">Missão 1 - Fazer alguma coisa</h4>
         </div>
         <div class="modal-body">
+            Aqui vai um texto qualquer<br>
             Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis.
             Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis.
             Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo.
